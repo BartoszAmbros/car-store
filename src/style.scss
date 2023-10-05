@@ -1,0 +1,335 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: 1400px) {
+        @content;
+    }
+}
+
+
+.home,
+.about,
+.contact,
+.login {
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(rgb(97, 97, 97), rgba(58, 147, 207, 0.774), rgb(97, 97, 97), rgba(58, 147, 207, 0.774));
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-around;
+        width: 80%;
+
+        .header {
+            border: solid black 2px;
+            width: 100%;
+            height: 50vh;
+            font-size: 30px;
+            background: center / cover no-repeat border-box url(https://www.carstore.com/-/media/carstore/locations/car-store-nottingham-808x455px.ashx);
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+                background-color: rgba($color: #000000, $alpha: 0.4);
+            }
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 70px;
+            width: 100%;
+            border: solid black 2px;
+            background: rgba($color: #000000, $alpha: 0.2);
+
+            span {
+                font-size: 32px;
+                padding: 0 4px;
+                border-bottom: solid white 3px;
+                box-shadow: 0px 2px 0px 0px #000;
+                cursor: pointer;
+                transition: 200ms;
+
+                @include laptop {
+                    font-size: 28px;
+                }
+
+            }
+
+            span:hover,
+            a:hover {
+                color: black;
+                text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 2px 2px 0 #fff;
+                scale: 125%;
+                border-bottom: solid black 3px;
+                box-shadow: 0px 2px 0px 0px #fff;
+            }
+
+        }
+
+
+        .list {
+            display: flex;
+            justify-content: space-evenly;
+            width: 95%;
+            min-height: 35%;
+            border: solid black 2px;
+            flex-wrap: wrap;
+            background-color: rgba($color: #000000, $alpha: 0.2);
+
+
+            .listing {
+                border: solid black 1px;
+                margin: 10px 0;
+                background-color: rgba($color: #000000, $alpha: 0.4);
+                transition: 150ms;
+                cursor: pointer;
+
+                img {
+                    width: 325px;
+                    border-bottom: solid black 1px;
+                }
+
+                p {
+                    margin: 10px;
+                    font-size: 20px;
+                }
+            }
+
+            .listing:hover {
+                scale: 105%;
+            }
+        }
+
+        .footer {
+            position: relative;
+            bottom: 0;
+            width: 125%;
+            height: 5%;
+            background-color: rgba($color: #000000, $alpha: 0.7);
+
+            .footer-content {
+                display: flex;
+                align-items: center;
+                gap: 35px;
+                padding: 0 15px;
+
+                p {
+                    border-bottom: solid white 1px;
+                    padding: 0 2px;
+                    cursor: pointer;
+                    transition: 200ms;
+                }
+
+                p:hover {
+                    scale: 125%;
+                }
+
+                span {
+                    position: absolute;
+                    right: 10px;
+                }
+            }
+        }
+
+        .about-component {
+            width: 90%;
+
+            .about-content {
+                display: flex;
+                justify-content: space-around;
+
+                article {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    border-left: solid black 1px;
+                    padding-bottom: 10px;
+                    background-color: rgba($color: #000000, $alpha: 0.3);
+
+                    h3 {
+                        border-bottom: solid black 1px;
+                        padding: 0 50px;
+                        padding-bottom: 5px;
+                        font-size: 20px;
+
+                        @include laptop {
+                            font-size: 16px;
+                        }
+                    }
+
+                    p {
+                        font-size: 16px;
+                        letter-spacing: 1px;
+                        margin: 0 25px;
+
+                        @include laptop {
+                            font-size: 12px;
+                        }
+                    }
+
+                    img {
+                        width: 350px;
+                        height: 200px;
+                        margin: 20px 0;
+
+                        @include laptop {
+                            width: 150px;
+                            height: 100px;
+                        }
+                    }
+                }
+
+
+
+                .brands {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-evenly;
+
+                    h3 {
+                        align-self: flex-start;
+                    }
+
+                    img {
+                        width: 175px;
+                        height: 175px;
+
+                        @include laptop {
+                            width: 100px;
+                            height: 100px;
+                        }
+                    }
+                }
+
+            }
+
+            .about-content article:last-child {
+                border-right: solid black 1px;
+            }
+
+        }
+
+        .contact-component {
+            width: 90%;
+            border: solid black 2px;
+            background-color: rgba($color: #000000, $alpha: 0.2);
+
+            h3 {
+                font-size: 35px;
+                text-align: center;
+            }
+
+            .contact-content {
+                display: flex;
+                justify-content: space-evenly;
+                border-top: solid black 2px;
+                background-color: rgba($color: #000000, $alpha: 0.2);
+
+                article {
+                    display: flex;
+                    flex-direction: column;
+                    border-right: solid black 1px;
+                    padding: 0 3px;
+
+                    h4 {
+                        font-size: 25px;
+                    }
+
+                    img {
+                        width: 450px;
+                        height: 250px;
+                    }
+
+                    p {
+                        font-size: 18px;
+                        margin: 10px 5px;
+                    }
+
+                    a {
+                        text-decoration: underline;
+                    }
+
+                    a:hover {
+                        color: blue;
+                    }
+                }
+
+            }
+
+            .contact-content article:last-child {
+                border: none;
+            }
+        }
+
+        .login-component {
+            height: 84vh;
+
+            .login-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 70%;
+
+                h2 {
+                    font-size: 40px;
+                    background-color: rgba($color: #000000, $alpha: 0.5);
+                    padding: 20px 35px;
+                    border: solid black 2px;
+                }
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 20px;
+                    background-color: rgba($color: #000000, $alpha: 0.5);
+                    padding: 20px;
+                    padding-top: 0;
+
+                    input {
+                        height: 20px;
+                    }
+
+                    button {
+                        margin-top: 20px;
+                        height: 35px;
+                        font-size: 20px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+}
